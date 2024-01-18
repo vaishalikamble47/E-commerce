@@ -1,0 +1,32 @@
+img{
+    width: 60%;
+    border-radius: 10px;
+}
+
+.p-detail{
+
+    margin-top: 4rem;
+    width:  45%;
+}
+.p-detail h5{
+    font-size: 2rem;
+}
+.p-detail p{
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.p-quntity input{
+    width: 10%;
+   
+}
+.p-detail span{
+    margin-bottom: 20px;
+}
+.product-brief{
+    font-size: 1rem !important;
+}
+button{
+   width: 50%;
+ margin-top: 4% !important;
+}

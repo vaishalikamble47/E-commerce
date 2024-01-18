@@ -1,0 +1,17 @@
+
+.navbar{
+    border-bottom:1px solid gray ;
+    position: fixed;
+}
+.navbar-brand{
+    margin-left:5%;
+}
+.navbarLink{
+    margin-left: 60%;
+    padding: 5px;
+}
+.N-link{
+    margin-left: 5%;
+    font-size: 1.1rem!important;
+    font-weight: 700!important;
+}
