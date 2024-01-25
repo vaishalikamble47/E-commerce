@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Home.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { filterProductCategoryAsync, getProductAsync, setSearchTerm } from '../../Redux-rtk/Slice/ProductSlice/ProductSlice'
@@ -34,6 +34,7 @@ const Home = () => {
   }
   useEffect(() => {
     getData()
+    
   }, [])
   return (
     <div className="home">

@@ -27,15 +27,16 @@ export const getSingleProductAsync = createAsyncThunk("getSingleProductAsync", a
 const initialState = {
     addProduct: {},
     productList: [],
-    singleProduct: {}
+    singleProduct: {},
+    filterList:[]
 }
 const productSlice = createSlice({
     name: "Products",
     initialState,
     reducers: {
         setSearchTerm: (state, action) => {
-            if (state.productList) {
-                const filteredProducts = state.productList.filter((product) =>
+            if (state.productList && action.payload) {
+                const filteredProducts = state.filterList.filter((product) =>
                   product.productname.toLowerCase().includes(action.payload.toLowerCase())
                 );
                 state.productList = filteredProducts;
@@ -49,6 +50,7 @@ const productSlice = createSlice({
             })
             .addCase(getProductAsync.fulfilled, (state, action) => {
                 state.productList = action.payload
+                state.filterList = action.payload
             })
             .addCase(filterProductCategoryAsync.fulfilled, (state, action) => {
                 state.productList = action.payload
