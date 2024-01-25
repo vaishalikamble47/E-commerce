@@ -78,47 +78,34 @@
       "id": 1
     }
   ],
-  "cart": [
+  "cart": [],
+  "orders": [
     {
+      "name": "wwwe",
+      "address": {
+        "address": "blabla",
+        "town": "yoyo",
+        "district": "yeyee",
+        "state": "oooh",
+        "pincode": "122334"
+      },
+      "mobile": "1234",
       "userid": 1,
-      "productid": 2,
-      "image": "https://5.imimg.com/data5/SELLER/Default/2023/3/292688888/HS/XJ/MN/164358149/3-color-naira-2--500x500.jpg",
-      "productname": "women kurta",
-      "brand": "Libas",
-      "category": "women",
-      "productdescription": "latest style with comfort",
-      "productbrief": "Our red floral print straight fit cotton kurta features a round neckline and three-quarter sleeves. Adorned with delicate fabric-trim accents and lace detailing, this versatile style is ideal for elevated everyday wear.",
-      "price": "500",
-      "discountprice": "375",
-      "quantity": 2,
+      "totalAmount": 49867.74,
       "id": 1
     },
     {
+      "name": "john",
+      "address": {
+        "address": "vsf",
+        "town": "vd",
+        "district": "sd",
+        "state": "vsg",
+        "pincode": "123"
+      },
+      "mobile": "123",
       "userid": 1,
-      "productid": 3,
-      "image": "https://images.moneycontrol.com/static-mcnews/2020/11/apple-iPhone-12-10.png?impolicy=website&width=1600&height=900",
-      "productname": "iPhone",
-      "brand": "Apple",
-      "category": "accessories",
-      "productdescription": "multi function",
-      "productbrief": "color-nevy blue, slim body",
-      "price": "50000",
-      "discountprice": "48999",
-      "quantity": 1,
-      "id": 2
-    },
-    {
-      "userid": 1,
-      "productid": 4,
-      "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/sweatshirt/n/d/x/-original-imagg9zvuwggaa5q.jpeg?q=90",
-      "productname": "Sweat Shirt",
-      "brand": "Puma",
-      "category": "men",
-      "productdescription": "get ready foe winter",
-      "productbrief": "xyxz",
-      "price": "1200",
-      "discountprice": "999",
-      "quantity": 1,
+      "totalAmount": 49488.99,
       "id": 3
     }
   ]

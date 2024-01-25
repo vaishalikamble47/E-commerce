@@ -12,7 +12,7 @@ export const getProductAsync = createAsyncThunk("getProductAsync", async () => {
     return result.data;
 })
 
-export const filterProductCategoryAsync=createAsyncThunk("filterProductCategory",async(category)=>{
+export const filterProductCategoryAsync = createAsyncThunk("filterProductCategory", async (category) => {
     const result = await axios.get(`${ApiUrl}/products/?category=${category}`)
     return result.data;
 })
@@ -27,14 +27,20 @@ export const getSingleProductAsync = createAsyncThunk("getSingleProductAsync", a
 const initialState = {
     addProduct: {},
     productList: [],
-    singleProduct:{}
+    singleProduct: {}
 }
 const productSlice = createSlice({
     name: "Products",
     initialState,
     reducers: {
-
-    
+        setSearchTerm: (state, action) => {
+            if (state.productList) {
+                const filteredProducts = state.productList.filter((product) =>
+                  product.productname.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.productList = filteredProducts;
+              }
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -53,4 +59,5 @@ const productSlice = createSlice({
 
     }
 })
+export const { setSearchTerm } = productSlice.actions;
 export default productSlice.reducer;

@@ -1,17 +1,39 @@
-
-.navbar{
-    border-bottom:1px solid gray ;
-    position: fixed;
-}
-.navbar-brand{
-    margin-left:5%;
-}
-.navbarLink{
-    margin-left: 60%;
-    padding: 5px;
-}
-.N-link{
-    margin-left: 5%;
-    font-size: 1.1rem!important;
-    font-weight: 700!important;
-}
+.n-name{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-left:2rem ;
+  }
+  .navbar{
+    background-color: #72a1d1;
+    box-shadow: 1px 1px 5px 4px rgb(168, 162, 162) ;
+  }
+  .n-name img{
+    height: 50px;
+    width: 60px;
+    border-radius: 50%;
+  }
+  @media screen and (min-width: 500px) {
+  .menu-btn{
+    width: 23% !important;
+  }
+  }
+  @media screen and (min-width: 950px) {
+    #n-links{
+      display: grid;
+      justify-content: end;
+    
+    }
+  }
+  .link-holder{
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .N-link{
+   margin-left: 1rem;
+  }
+  .N-link:hover{
+   color: #fff !important; ;
+  }
+  .cursor-pointer{
+    cursor: pointer;
+  }

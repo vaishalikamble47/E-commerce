@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCartDatabyUseridAsync } from '../../Redux-rtk/Slice/CartSlice/CartSlice'
+import { deleteCartDatabyCartIdAsync, getCartDatabyUseridAsync } from '../../Redux-rtk/Slice/CartSlice/CartSlice'
 import "./Cart.css"
+import { Link } from 'react-router-dom'
 const Cart = () => {
-
   const dispatch = useDispatch()
   const cartData = useSelector((state) => state.cart.usercardlist)
+  console.log(cartData);
   let sum = 0;
   const taxRate = 0.01;
   cartData.forEach(item => {
@@ -13,6 +14,13 @@ const Cart = () => {
   });
   const taxAmount = sum * taxRate;
   const deliveryAmount = sum > 500 ? 0 : 100;
+
+  const removeCart=(id)=>{
+    const userdata = localStorage.getItem("user")
+    const user = JSON.parse(userdata)
+    dispatch(deleteCartDatabyCartIdAsync(id))
+    dispatch(getCartDatabyUseridAsync(user.id))
+  }
   useEffect(() => {
     const userdata = localStorage.getItem("user")
     const user = JSON.parse(userdata)
@@ -20,6 +28,8 @@ const Cart = () => {
       dispatch(getCartDatabyUseridAsync(user.id))
     }
   }, [dispatch])
+
+
   return (
     <>
    {
@@ -39,9 +49,9 @@ const Cart = () => {
                    </div>
                    <div className="col-sm-6">
                      <h5 class="card-title ">Name:- {item.productname}</h5>
-                     <p class="card-text ">Price:- {item.price}</p>
+                     <p class="card-text ">Price:- {item.discountprice}</p>
                      <p class="card-text ">Quantity:- {item.quantity}</p>
-                     <button class="button btn btn-primary">Remove to Cart</button>
+                     <button class="button btn btn-danger" onClick={()=>removeCart(item.id)}>Remove to Cart</button>
                    </div>
                  </div>
                </div>
@@ -57,7 +67,7 @@ const Cart = () => {
            <p>Tax :- {taxAmount}</p>
            <p>Delivery:- {deliveryAmount == 0 ? "Free" : deliveryAmount} </p>
            <h6>Total:- {sum + taxAmount + deliveryAmount}</h6>
-           <button className='checkout-btn'>Checkout</button>
+          <Link to="/checkout"> <button className='btn btn-success checkout-btn'>Checkout</button></Link>
          </div>
        </div>
      </div>

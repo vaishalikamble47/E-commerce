@@ -1,5 +1,5 @@
 
-// import './App.css';
+import './App.css';
 import Navbar from './Component/Navbar/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./Component/Home/Home"
@@ -11,6 +11,8 @@ import AdminSignUp from './Component/AdminUser/AdminSignUp';
 import { useEffect, useState } from 'react';
 import AddProduct from './Component/Product/AddProduct';
 import ProductDetail from './Component/ProductDetail/ProductDetail';
+import CheckOut from './Component/CheckOut/CheckOut';
+import MyOrders from './Component/MyOrders/MyOrders';
 
 function App() {
   const [checkadmin,setCheckadmin]=useState()
@@ -38,10 +40,12 @@ function App() {
           <Route path='/adminlogin' element={<AdminLogin checkAdminuser={checkAdminuser} />}/>
           <Route path='/adminsignup' element={<AdminSignUp />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/checkout' element={<CheckOut />} />
           <Route path='/signup' element={<SignUP />} />
           <Route path='/login' element={<Login checkuserlog={checkuserlog}/>} />
           <Route path='/addproduct' element={<AddProduct />} />
           <Route path='/productdetail/:id' element={<ProductDetail />} />
+          <Route path='/myorders' element={<MyOrders/>}/>
 
         </Routes>
       </BrowserRouter>

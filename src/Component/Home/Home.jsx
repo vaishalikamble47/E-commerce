@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import "./Home.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { filterProductCategoryAsync, getProductAsync } from '../../Redux-rtk/Slice/ProductSlice/ProductSlice'
+import { filterProductCategoryAsync, getProductAsync, setSearchTerm } from '../../Redux-rtk/Slice/ProductSlice/ProductSlice'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
   const dispatch = useDispatch()
   const product = useSelector((state) => state.products.productList)
+
   const getData = () => {
     try {
       dispatch(getProductAsync())
@@ -22,6 +23,15 @@ const Home = () => {
       dispatch(filterProductCategoryAsync(value))
     }
   }
+  const productSearch=(e)=>{
+    let value =e.target.value
+    if (value.length>0) {
+      dispatch(setSearchTerm(value))
+    }else{
+      getData()
+    }
+
+  }
   useEffect(() => {
     getData()
   }, [])
@@ -32,11 +42,14 @@ const Home = () => {
         <div className="filter">
 
           <div className="row mt-3">
-            <div className="col-lg-10 col-md-12 col-sm-12">
-              <input className="search-btn" type="search" placeholder='Start Typing To Search...' /><span className='search-span'><i class="bi bi-search"></i></span>
+            <div className="col col-md-9 col-sm-7">
+              <div className='ms-2 me-3'>
+              <input onChange={productSearch} type="search" className='form-control search-input' placeholder='Search Product ..' />
+              </div>
             </div>
-            <div className="col-lg-1 col-lg-2 col-lg-2">
-              <select class=" p-1" onChange={filterChangeByCategory}
+            <div className="col col-md-3 col-sm-4">
+             <div className=''>
+             <select class=" p-1" onChange={filterChangeByCategory}
                 aria-label="Default select example">
                 <option selected>Filter</option>
                 <option value="All">All</option>
@@ -46,6 +59,7 @@ const Home = () => {
                 <option value="accessories">Accessories</option>
                 <option value="footwere">Footwere</option>
               </select>
+             </div>
             </div>
           </div>
         </div>

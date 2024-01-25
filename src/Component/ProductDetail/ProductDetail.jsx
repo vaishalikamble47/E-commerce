@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import "./ProductDetail.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { getSingleProductAsync } from '../../Redux-rtk/Slice/ProductSlice/ProductSlice'
-import { createCartAsync, getCartDataAsync } from '../../Redux-rtk/Slice/CartSlice/CartSlice'
+import { createCartAsync, getCartDataAsync, getCartDatabyUseridAsync } from '../../Redux-rtk/Slice/CartSlice/CartSlice'
 const ProductDetail = () => {
     const navigate = useNavigate()
     const [quantity, setQuantity] = useState(1)
@@ -40,6 +40,9 @@ const ProductDetail = () => {
             }
             dispatch(createCartAsync(cartdata))
             dispatch((getCartDataAsync()))
+            const user = localStorage.getItem('user')
+            const dataUser = JSON.parse(user)
+            dispatch(getCartDatabyUseridAsync(dataUser.id))
         } else {
             navigate('/login')
         }

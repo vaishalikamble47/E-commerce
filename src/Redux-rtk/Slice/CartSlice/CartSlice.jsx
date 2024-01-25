@@ -15,6 +15,11 @@ export const getCartDatabyUseridAsync = createAsyncThunk("getCartDatabyUseridAsy
     return result.data;
 })
 
+export const deleteCartDatabyCartIdAsync = createAsyncThunk("deleteCartDatabyCartIdAsync", async (cartId) => {
+    const result = await axios.delete(`${ApiUrl}/cart/${cartId}`)
+    return result.data;
+})
+
 
 
 const initialState = {
@@ -39,6 +44,9 @@ const cartSlice = createSlice({
             })
             .addCase(getCartDatabyUseridAsync.rejected, (state, action) => {
                 state.usercardlist = []
+            })
+            .addCase(deleteCartDatabyCartIdAsync.fulfilled, (state, action) => {
+                
             })
     }
 })
