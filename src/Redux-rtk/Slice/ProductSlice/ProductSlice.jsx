@@ -40,6 +40,8 @@ const productSlice = createSlice({
                   product.productname.toLowerCase().includes(action.payload.toLowerCase())
                 );
                 state.productList = filteredProducts;
+              }else{
+                state.productList=state.filterList
               }
         },
     },
@@ -54,6 +56,7 @@ const productSlice = createSlice({
             })
             .addCase(filterProductCategoryAsync.fulfilled, (state, action) => {
                 state.productList = action.payload
+                state.filterList = action.payload
             })
             .addCase(getSingleProductAsync.fulfilled, (state, action) => {
                 state.singleProduct = action.payload

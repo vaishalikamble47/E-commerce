@@ -28,7 +28,7 @@ const Home = () => {
     if (value.length>0) {
       dispatch(setSearchTerm(value))
     }else{
-      getData()
+      dispatch(setSearchTerm(value))
     }
 
   }
