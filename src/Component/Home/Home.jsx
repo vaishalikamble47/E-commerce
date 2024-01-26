@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 const Home = () => {
   const dispatch = useDispatch()
   const product = useSelector((state) => state.products.productList)
+  const isloading = useSelector((state) => state.products.isLoading)
 
   const getData = () => {
     try {
@@ -45,12 +46,12 @@ const Home = () => {
           <div className="row mt-3">
             <div className="col col-md-9 col-sm-7">
               <div className='ms-2 me-3'>
-              <input onChange={productSearch} type="search" className='form-control search-input' placeholder='Search Product ..' />
+              <input onChange={productSearch} type="search" className='p-2 form-control search-input' placeholder='Search Product ..' />
               </div>
             </div>
             <div className="col col-md-3 col-sm-4">
              <div className=''>
-             <select class=" p-1" onChange={filterChangeByCategory}
+             <select class=" p-2" onChange={filterChangeByCategory}
                 aria-label="Default select example">
                 <option selected>Filter</option>
                 <option value="All">All</option>
@@ -64,6 +65,16 @@ const Home = () => {
             </div>
           </div>
         </div>
+        {
+          isloading ? 
+          <div className="container d-flex vh-100 justify-content-center align-items-center">
+     
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        </div> :null
+        }
+        
         {
           product.map((item) => (
             <div className="col-lg-3 col-md-6 col-sm-12 text-center">

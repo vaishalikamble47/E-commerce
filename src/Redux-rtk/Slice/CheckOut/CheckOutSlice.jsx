@@ -17,6 +17,7 @@ export const deleteOrderByUserIdAsync = createAsyncThunk("deleteOrderByUserIdAsy
 })
 
 const initialState = {
+    isloading:false,
     orderList: []
 }
 const checkOutSlice = createSlice({
@@ -29,11 +30,16 @@ const checkOutSlice = createSlice({
         builder
             .addCase(createOrderAsync.fulfilled, (state, action) => {
             })
+            .addCase(getOrderByUserIdAsync.pending, (state, action) => {
+                state.isloading = true
+            })
             .addCase(getOrderByUserIdAsync.fulfilled, (state, action) => {
                 state.orderList = action.payload
+                state.isloading = false
             })
             .addCase(getOrderByUserIdAsync.rejected, (state, action) => {
                 state.orderList = []
+                state.isloading = false
             })
             .addCase(deleteOrderByUserIdAsync.fulfilled, (state, action) => {
                 

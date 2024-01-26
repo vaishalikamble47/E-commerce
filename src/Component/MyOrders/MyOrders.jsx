@@ -7,17 +7,19 @@ const MyOrders = () => {
 
   const dispatch = useDispatch()
   const order = useSelector((state) => state.checkout.orderList)
+  const isloading = useSelector((state) => state.checkout.isloading)
 
   const cancleOrder = (id) => {
     dispatch(deleteOrderByUserIdAsync(id))
-    toast.success("order has been cancle", {
-      position: toast.POSITION.TOP_RIGHT,
-    });
+    
     const user = localStorage.getItem('user')
     const dataUser = JSON.parse(user)
     if (dataUser) {
       dispatch(getOrderByUserIdAsync(dataUser.id))
     }
+    toast.success("order has been cancle", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
   }
   useEffect(() => {
     const user = localStorage.getItem('user')
@@ -30,6 +32,15 @@ const MyOrders = () => {
   return (
     <div>
       <ToastContainer/>
+      {
+          isloading ? 
+          <div className="container d-flex vh-100 justify-content-center align-items-center">
+     
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        </div> :null
+        }
       {
         order.length ? 
         <table class="table table-striped">

@@ -23,6 +23,7 @@ export const deleteCartDatabyCartIdAsync = createAsyncThunk("deleteCartDatabyCar
 
 
 const initialState = {
+    isloading:false,
     cartlist: {},
     usercardlist:[]
 }
@@ -39,11 +40,16 @@ const cartSlice = createSlice({
             .addCase(getCartDataAsync.fulfilled, (state, action) => {
                 state.cartlist = action.payload
             })
+            .addCase(getCartDatabyUseridAsync.pending, (state, action) => {
+                state.isloading = true
+            })
             .addCase(getCartDatabyUseridAsync.fulfilled, (state, action) => {
                 state.usercardlist = action.payload
+                state.isloading = false
             })
             .addCase(getCartDatabyUseridAsync.rejected, (state, action) => {
                 state.usercardlist = []
+                state.isloading = false
             })
             .addCase(deleteCartDatabyCartIdAsync.fulfilled, (state, action) => {
                 

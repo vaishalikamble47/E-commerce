@@ -25,6 +25,7 @@ export const getSingleProductAsync = createAsyncThunk("getSingleProductAsync", a
 
 
 const initialState = {
+    isLoading:false,
     addProduct: {},
     productList: [],
     singleProduct: {},
@@ -50,9 +51,16 @@ const productSlice = createSlice({
             .addCase(addProductAsync.fulfilled, (state, action) => {
                 state.addProduct = action.payload
             })
+            .addCase(getProductAsync.pending, (state, action) => {
+                state.isLoading =true
+            })
             .addCase(getProductAsync.fulfilled, (state, action) => {
                 state.productList = action.payload
                 state.filterList = action.payload
+                state.isLoading = false
+            })
+            .addCase(getProductAsync.rejected, (state, action) => {
+                state.isLoading = false
             })
             .addCase(filterProductCategoryAsync.fulfilled, (state, action) => {
                 state.productList = action.payload
