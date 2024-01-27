@@ -15,21 +15,18 @@ const Cart = () => {
   });
   const taxAmount = sum * taxRate;
   const deliveryAmount = sum > 500 ? 0 : 100;
-
+const getCartData=()=>{
+  const userdata = localStorage.getItem("user")
+  const user = JSON.parse(userdata)
+  dispatch(getCartDatabyUseridAsync(user.id))
+}
   const removeCart=(id)=>{
-    const userdata = localStorage.getItem("user")
-    const user = JSON.parse(userdata)
     dispatch(deleteCartDatabyCartIdAsync(id))
-    dispatch(getCartDatabyUseridAsync(user.id))
+    getCartData()
   }
   useEffect(() => {
-    const userdata = localStorage.getItem("user")
-    const user = JSON.parse(userdata)
-    if (user) {
-      dispatch(getCartDatabyUseridAsync(user.id))
-    }
+    getCartData()
   }, [dispatch])
-
 
   return (
     <>

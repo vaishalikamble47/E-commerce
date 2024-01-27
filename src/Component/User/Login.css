@@ -12,9 +12,15 @@
 }
 
 .l-input input,
-button,h2 {
-    width: 150%;
+.btn-primary,h2 {
+    width: 150% !important;
 }
 .color{
     color: red;
 }
+@media screen and (max-width: 500px) {
+    .l-input input,
+    .btn-primary,h2 {
+        width: 100% !important;
+    }
+    }

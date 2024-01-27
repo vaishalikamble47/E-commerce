@@ -57,7 +57,7 @@ const SignUP = () => {
           {
             passwordError && <span className='color'>{passwordError}</span>
           }
-          <button className='btn btn-primary w-100'>Sign Up</button>
+          <button className='btn btn-primary'>Sign Up</button>
         </div>
       </form>
       <p className='mt-3'>Already have an account?<Link to="/login"><span>Log In</span></Link></p>

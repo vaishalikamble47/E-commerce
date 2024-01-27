@@ -8,25 +8,22 @@ const MyOrders = () => {
   const dispatch = useDispatch()
   const order = useSelector((state) => state.checkout.orderList)
   const isloading = useSelector((state) => state.checkout.isloading)
-
-  const cancleOrder = (id) => {
-    dispatch(deleteOrderByUserIdAsync(id))
-    
-    const user = localStorage.getItem('user')
+const getOrders=()=>{
+ const user = localStorage.getItem('user')
     const dataUser = JSON.parse(user)
     if (dataUser) {
       dispatch(getOrderByUserIdAsync(dataUser.id))
     }
+}
+  const cancleOrder = (id) => {
+    dispatch(deleteOrderByUserIdAsync(id))
+    getOrders()
     toast.success("order has been cancle", {
       position: toast.POSITION.TOP_RIGHT,
     });
   }
   useEffect(() => {
-    const user = localStorage.getItem('user')
-    const dataUser = JSON.parse(user)
-    if (dataUser) {
-      dispatch(getOrderByUserIdAsync(dataUser.id))
-    }
+   getOrders()
 
   }, [dispatch])
   return (

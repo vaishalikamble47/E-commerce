@@ -58,7 +58,7 @@ const Login = ({checkuserlog}) => {
           {
             passwordError && <span className='color'>{passwordError} </span>
           }
-          <button className='btn btn-primary w-100'>Login</button>
+          <button className='btn btn-primary'>Login</button>
         </div>
       </form>
       <p className='mt-3'>New Customer?<Link to="/signup"><span>Create An Account</span></Link></p>

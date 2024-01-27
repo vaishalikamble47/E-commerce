@@ -51,7 +51,7 @@ const AdminLogin = ({ checkAdminuser }) => {
             {
             passwordError && <span className='error'>{passwordError} </span>
            }
-            <button className='btn btn-primary w-100 mt-4'>Login</button>
+            <button className='btn btn-primary  mt-4'>Login</button>
           </div>
         </form>
         <p className='mt-3'>New User?<Link to="/adminsignup"><span>Create An Account</span></Link></p>
