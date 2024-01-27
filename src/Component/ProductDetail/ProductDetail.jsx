@@ -70,7 +70,7 @@ const ProductDetail = () => {
                             <span onClick={decreaseCount}><i class="bi bi-dash"></i> </span>
                             <input type="number" value={quantity} />
                             <span onClick={increaseCount}><i class="bi bi-plus-lg" ></i></span></div>
-                        <button type="button" class="btn btn-success" onClick={addToCart}>Add to cart</button>
+                        <button type="button" class="btn btn-success addtocartbtn" onClick={addToCart}>Add to cart</button>
                     </div>
                 </div>
             </div>

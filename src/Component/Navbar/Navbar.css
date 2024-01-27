@@ -12,11 +12,7 @@
     width: 60px;
     border-radius: 50%;
   }
-  @media screen and (min-width: 500px) {
-  .menu-btn{
-    width: 23% !important;
-  }
-  }
+ 
   @media screen and (min-width: 950px) {
     #n-links{
       display: grid;
@@ -37,3 +33,11 @@
   .cursor-pointer{
     cursor: pointer;
   }
+  .navbar .menu-btn{
+    width: 21% !important;
+  }
+    @media screen and (max-width: 500px) {
+      .navbar .menu-btn .navbar-toggler-icon,.navbar-toggler{
+        width: 21% !important;
+      }
+      }

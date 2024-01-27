@@ -18,7 +18,9 @@ const Cart = () => {
 const getCartData=()=>{
   const userdata = localStorage.getItem("user")
   const user = JSON.parse(userdata)
-  dispatch(getCartDatabyUseridAsync(user.id))
+ if (user) {
+  dispatch(getCartDatabyUseridAsync(user?.id))
+ }
 }
   const removeCart=(id)=>{
     dispatch(deleteCartDatabyCartIdAsync(id))
@@ -57,7 +59,7 @@ const getCartData=()=>{
                      <h5 class="card-title ">Name:- {item.productname}</h5>
                      <p class="card-text ">Price:- {item.discountprice}</p>
                      <p class="card-text ">Quantity:- {item.quantity}</p>
-                     <button class="button btn btn-danger" onClick={()=>removeCart(item.id)}>Remove to Cart</button>
+                     <button class="button btn btn-danger cart-button" onClick={()=>removeCart(item.id)}>Remove to Cart</button>
                    </div>
                  </div>
                </div>
@@ -73,18 +75,18 @@ const getCartData=()=>{
            <p>Tax :- {taxAmount}</p>
            <p>Delivery:- {deliveryAmount == 0 ? "Free" : deliveryAmount} </p>
            <h6>Total:- {sum + taxAmount + deliveryAmount}</h6>
-          <Link to="/checkout"> <button className='btn btn-success checkout-btn'>Checkout</button></Link>
+          <Link to="/checkout"> <button className='btn btn-success checkout-btn cart-button'>Checkout</button></Link>
          </div>
        </div>
      </div>
    </div>
  </div>
    
-  // :<div className="container d-flex vh-100 justify-content-center align-items-center">
+  :<div className="container d-flex vh-100 justify-content-center align-items-center">
      
-  // <h5 >No Cart Availabel</h5>
-  // </div>  
-  :null
+  <h5 >No Cart Availabel</h5>
+  </div>  
+  
    }
    </>
   )
