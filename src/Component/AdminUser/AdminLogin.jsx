@@ -26,7 +26,7 @@ const AdminLogin = ({ checkAdminuser }) => {
       const result = await dispatch(loginAdminAsync(data))
       let admindata = result.payload.data[0]
       delete admindata.password
-      localStorage.setItem("user", JSON.stringify(admindata))
+      localStorage.setItem("adminuser", JSON.stringify(admindata))
       checkAdminuser()
       navigate('/')
      } catch (error) {
