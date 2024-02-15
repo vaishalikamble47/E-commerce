@@ -68,6 +68,36 @@
       "category": "kid",
       "brand": "first cry",
       "id": 5
+    },
+    {
+      "productname": "slipper",
+      "productdescription": "easy to wear comfortable",
+      "price": "500",
+      "discountprice": "399",
+      "productimg": "https://assets.ajio.com/medias/sys_master/root/20230726/syuc/64c1419beebac147fc8abbc5/u.s._polo_assn._black_specter_5.0_logo_embossed_slides.jpg",
+      "category": "footwere",
+      "brand": "flip flop",
+      "id": 6
+    },
+    {
+      "productname": "Earrings",
+      "productdescription": "Daily wear gold plated earrings",
+      "price": "1200",
+      "discountprice": "999",
+      "productimg": "https://simplecraftidea.com/wp-content/uploads/2022/11/Collage-Maker-21-Nov-2022-02.57-PM.jpg.webp",
+      "category": "accessories",
+      "brand": "P.N.Gadagilkar",
+      "id": 7
+    },
+    {
+      "productname": "T-Shirt",
+      "productdescription": " Print Cotton Black T-Shirt",
+      "price": "50000",
+      "discountprice": "46000",
+      "productimg": "https://pbs.twimg.com/media/Fow5VgZagAIbqIM.jpg",
+      "category": "men",
+      "brand": "AMIRI",
+      "id": 8
     }
   ],
   "user": [
@@ -78,35 +108,21 @@
       "id": 1
     }
   ],
-  "cart": [],
-  "orders": [
+  "cart": [
     {
-      "name": "wwwe",
-      "address": {
-        "address": "blabla",
-        "town": "yoyo",
-        "district": "yeyee",
-        "state": "oooh",
-        "pincode": "122334"
-      },
-      "mobile": "1234",
       "userid": 1,
-      "totalAmount": 49867.74,
-      "id": 1
-    },
-    {
-      "name": "john",
-      "address": {
-        "address": "vsf",
-        "town": "vd",
-        "district": "sd",
-        "state": "vsg",
-        "pincode": "123"
-      },
-      "mobile": "123",
-      "userid": 1,
-      "totalAmount": 49488.99,
-      "id": 3
+      "productid": 1,
+      "image": "https://i.pinimg.com/736x/1f/b4/85/1fb485d8aaa80e0b99549ed9e8376e79.jpg",
+      "productname": "Banarasi saree",
+      "brand": "Laxmipati",
+      "category": "women",
+      "productdescription": "the famus of banaras",
+      "productbrief": "easy to wash. good fabric,",
+      "price": "5000",
+      "discountprice": "4000",
+      "quantity": 1,
+      "id": 4
     }
-  ]
+  ],
+  "orders": []
 }

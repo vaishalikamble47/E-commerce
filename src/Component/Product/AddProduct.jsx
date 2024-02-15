@@ -26,8 +26,8 @@ const[brand,setBrand]=useState()
 
   const createproduct = async (e) => {
     e.preventDefault()
-    const data = { productname, productdescription, productbrief, price, discountprice, productimg,category,brand}
-    if (productname && productdescription && productbrief && price && discountprice && productimg&& category&&brand) {
+    const data = { productname, productdescription,  price, discountprice, productimg,category,brand}
+    if (productname && productdescription && price && discountprice && productimg&& category&&brand) {
       try {
         const result = await dispatch(addProductAsync(data))
         toast.success("Product Added Successfully", {
@@ -76,12 +76,12 @@ const[brand,setBrand]=useState()
                 value={productdescription}
                 onChange={(e) => setProductdescription(e.target.value)} />
             </div>
-            <div className='mb-3'>
+            {/* <div className='mb-3'>
               <label>Product Brief</label><br />
               <textarea type="text" className='w-100'
                 value={productbrief}
                 onChange={(e) => setProductbrief(e.target.value)} />
-            </div>
+            </div> */}
             <div className='mt-3 row'>
               <div className='col-md-6 col-sm-12'>
                 <label>Price</label>

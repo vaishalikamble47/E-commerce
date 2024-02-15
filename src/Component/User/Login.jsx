@@ -14,6 +14,7 @@ const Login = ({checkuserlog}) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const userSignin = async (e) => {
+    debugger
     if (!email) {
       setEmailError("Enter Valid Email")
     }
@@ -43,7 +44,6 @@ const Login = ({checkuserlog}) => {
       <h2 className='text-center'>Login Here</h2>
       <p className='color'>{showErr}</p>
       <form onSubmit={userSignin}>
-
         <div className="l-input">
           <input type="email" className="form-control "
             value={email} onChange={(e) => setEmail(e.target.value)}
