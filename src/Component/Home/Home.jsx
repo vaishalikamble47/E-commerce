@@ -61,7 +61,7 @@ const Home = () => {
               </div>
               <div className='col col-md-3 col-sm-3'>
                 <select onChange={filterChangeByPrice} className='form-select p-2'>
-                  <option >Filter By Price</option>
+                  <option value="all">Filter By Price</option>
                   <option value="all">All</option>
                   <option value="low">Low Price</option>
                   <option value="high">High Price</option>
@@ -71,7 +71,7 @@ const Home = () => {
                 <div>
                   <select class="form-select p-2 filter-btn" onChange={filterChangeByCategory}
                     aria-label="Default select example">
-                    <option >Filter By Category</option>
+                    <option value="All">Filter By Category</option>
                     <option  value="All">All</option>
                     <option value="women">Women</option>
                     <option value="men">Men</option>
