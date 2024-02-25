@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./Home.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { filterProductCategoryAsync, getProductAsync, setSearchTerm } from '../../Redux-rtk/Slice/ProductSlice/ProductSlice'
+import { filterProductCategoryAsync, getProductAsync, setSearchTerm,filterByPrice } from '../../Redux-rtk/Slice/ProductSlice/ProductSlice'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
@@ -24,6 +24,16 @@ const Home = () => {
       dispatch(filterProductCategoryAsync(value))
     }
   }
+  const filterChangeByPrice = (e) => {
+    let value = e.target.value
+    if (value =="low") {
+      dispatch(filterByPrice(value))
+    } else if (value=="high") {
+      dispatch(filterByPrice(value))
+    } else if (value=="all") {
+      getData()
+    } 
+  }
   const productSearch = (e) => {
     let value = e.target.value
     if (value.length > 0) {
@@ -44,20 +54,28 @@ const Home = () => {
           <div className="filter">
 
             <div className="row mt-3">
-              <div className="col col-md-9 col-sm-7">
+              <div className="col col-md-5 col-sm-5">
                 <div className='ms-2 me-3'>
                   <input onChange={productSearch} type="search" className='p-2 form-control search-input' placeholder='Search Product ..' />
                 </div>
               </div>
-              <div className="col col-md-3 col-sm-4">
+              <div className='col col-md-3 col-sm-3'>
+                <select onChange={filterChangeByPrice} className='form-select p-2'>
+                  <option >Filter By Price</option>
+                  <option value="all">All</option>
+                  <option value="low">Low Price</option>
+                  <option value="high">High Price</option>
+                </select>
+              </div>
+              <div className="col col-md-3 col-sm-3">
                 <div>
-                  <select class=" p-2 filter-btn" onChange={filterChangeByCategory}
+                  <select class="form-select p-2 filter-btn" onChange={filterChangeByCategory}
                     aria-label="Default select example">
-                    <option selected>Filter</option>
-                    <option value="All">All</option>
-                    <option value="women">women</option>
+                    <option >Filter By Category</option>
+                    <option  value="All">All</option>
+                    <option value="women">Women</option>
                     <option value="men">Men</option>
-                    <option value="kid">Kid</option>
+                    <option value="kid">Kids</option>
                     <option value="accessories">Accessories</option>
                     <option value="footwere">Footwere</option>
                   </select>
@@ -75,7 +93,7 @@ const Home = () => {
               </div> : null
           }
           {
-            product.map((item) => (
+          product.length>0?  product.map((item) => (
 
               <div className="col-lg-3 col-md-6 col-sm-12 mt-5">
                 <div className="card">
@@ -91,7 +109,10 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-            ))
+            )) :<div className="container d-flex vh-100 justify-content-center align-items-center">
+     
+            <h5 >No Product Availabel</h5>
+            </div> 
           }
         </div>
       </div>

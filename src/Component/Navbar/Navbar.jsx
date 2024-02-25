@@ -85,6 +85,14 @@ const Navbar = ({ checkadmin, checkAdminuser, checkuser, checkuserlog }) => {
               Add Product
             </Link> : null
           }
+          {
+            checkadmin ? <Link
+              className="nav-item nav-link N-link"
+              to="/admin"
+            >
+              Admin
+            </Link> : null
+          }
 
 
           {

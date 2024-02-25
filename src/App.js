@@ -13,6 +13,7 @@ import AddProduct from './Component/Product/AddProduct';
 import ProductDetail from './Component/ProductDetail/ProductDetail';
 import CheckOut from './Component/CheckOut/CheckOut';
 import MyOrders from './Component/MyOrders/MyOrders';
+import AdminPanel from './Component/AdminPannel/AdminPanel';
 
 function App() {
   const [checkadmin,setCheckadmin]=useState()
@@ -46,6 +47,7 @@ function App() {
           <Route path='/addproduct' element={<AddProduct />} />
           <Route path='/productdetail/:id' element={<ProductDetail />} />
           <Route path='/myorders' element={<MyOrders/>}/>
+          <Route path='/admin' element={<AdminPanel/>}/>
 
         </Routes>
       </BrowserRouter>

@@ -45,6 +45,16 @@ const productSlice = createSlice({
                 state.productList=state.filterList
               }
         },
+        filterByPrice:(state,action)=>{
+            if (action.payload=="low") {
+                const sortProductByPrice = state.filterList.sort((a,b)=>parseFloat(a.price) - parseFloat(b.price))
+                state.productList = sortProductByPrice;   
+            }else if (action.payload=="high") {
+                const sortData = state.filterList.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+                state.productList = sortData; 
+            } 
+       
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -73,4 +83,5 @@ const productSlice = createSlice({
     }
 })
 export const { setSearchTerm } = productSlice.actions;
+export const { filterByPrice } = productSlice.actions;
 export default productSlice.reducer;

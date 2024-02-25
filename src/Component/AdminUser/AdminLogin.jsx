@@ -54,7 +54,7 @@ const AdminLogin = ({ checkAdminuser }) => {
             <button className='btn btn-primary  mt-4'>Login</button>
           </div>
         </form>
-        <p className='mt-3'>New User?<Link to="/adminsignup"><span>Create An Account</span></Link></p>
+        {/* <p className='mt-3'>New User?<Link to="/adminsignup"><span>Create An Account</span></Link></p> */}
       </div>
     </div>
   )
